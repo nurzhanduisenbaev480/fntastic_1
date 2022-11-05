@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String changer</title>
+</head>
+<body>
+<label for="string">Введите текст</label>
+<input type="text" name="string" id="string" value="textss">
+<button id="check">Check</button>
+
+<h1>Результат: <span id="test"></span></h1>
+
+<script>
+    let check = document.getElementById("check")
+    check.addEventListener("click", checker);
+
+    function checker(){
+        let str = document.getElementById("string").value;
+        str = str.toLowerCase();
+        //console.log(str.length);
+        let result = '';
+        for (let i=0; i<str.length; i++){
+            console.log(str[i]);
+            if (str.indexOf(str[i]) === str.lastIndexOf(str[i])){
+                result+='(';
+            }else{
+                result+=')';
+            }
+        }
+        let res = document.getElementById("test");
+        res.textContent = result;
+    }
+</script>
+</body>
+</html>
